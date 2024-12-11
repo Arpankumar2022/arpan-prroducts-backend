@@ -1,0 +1,28 @@
+server:
+  port : 9096
+  error :
+    include-message: always
+  servlet:
+    contextPath: /myWebApp
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9094/eureka/
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/arpanbagsproduct
+    username: root
+    password: root1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  application:
+    name: "ARPAN-BAGS-USERS"
+
+product-api-base-uri: "http://localhost:9092/myWebApp"

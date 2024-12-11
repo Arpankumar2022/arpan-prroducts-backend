@@ -1,0 +1,39 @@
+server: 
+  port : 9090
+  error : 
+    include-message: always
+  servlet:
+    contextPath: /myWebApp
+
+cors:
+  allowed-origins: "*"
+  allowed-methods: "*"
+  allowed-headers: "*"
+  exposed-headers: "*"
+
+spring: 
+  datasource : 
+    url : jdbc:mysql://localhost:3306/arpanbagsproduct
+    username : root
+    password : root1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  config:
+    activate:
+      on-profile: "local"
+
+application:
+    name: ARPAN-BAGS-BACKEND
+
+#arpanbagsprivatejaihanuman
+#https://emn178.github.io/online-tools/sha256.html
+jwt: 
+  jwtSecretKey : 33d5581a2d443825d32f8d634eeed46d3c21bb6927f61bfe83d1096f381ef7f6
+  jwtExpiryTimeout-milliseconds : 2500001
+
+

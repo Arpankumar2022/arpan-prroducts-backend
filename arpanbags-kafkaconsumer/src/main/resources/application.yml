@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+topic:
+  name: t.food.order
+
+spring:
+  kafka:
+    consumer:
+      enable-auto-commit: true
+      bootstrap-servers: localhost:9092
+      group-id: arpanbags_kafkaconsumer_group
+      auto-offset-reset: earliest
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+  datasource:
+    url: jdbc:mysql://localhost:3306/arpanbagsproduct
+    username: root
+    password: root1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  application:
+    name: "ARPAN-BAGS-KAFKA-CONSUMER"

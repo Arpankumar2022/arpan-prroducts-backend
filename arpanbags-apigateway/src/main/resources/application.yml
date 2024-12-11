@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: "ARPAN-BAGS-APIGATEWAY"
+  profiles:
+    active: native
+  cloud:
+    config:
+      import-check:
+        enabled: false
+  config:
+     import: "optional:configserver:http://localhost:8071/"
+
+
+management:
+   endpoints:
+     gateway:
+       enabled: true

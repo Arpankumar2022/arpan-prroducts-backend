@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ARPAN-BAGS-CONFIGSERVER
+
+server:
+  port : 8071

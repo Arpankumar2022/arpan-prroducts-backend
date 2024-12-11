@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: "ARPAN-BAGS-EUREKA-SERVER"
+
+server:
+  port: 9094
+
+eureka:
+  client:
+    fetchRegistry: false
+    registerWithEureka: false

@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+
+  application:
+    name: ARPAN-BAGS-ACCOUNTS
+
+accounts:
+  message: "Welcome to Account Section related to QA APIs"

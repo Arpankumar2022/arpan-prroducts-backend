@@ -1,0 +1,45 @@
+server: 
+  port : 9093
+  error : 
+    include-message: always
+  servlet:
+    contextPath: /myWebApp
+
+cors:
+  allowed-origins: "*"
+  allowed-methods: "*"
+  allowed-headers: "*"
+  exposed-headers: "*"
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/arpanbagsproduct
+    username: root
+    password: root1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    import:
+      -"accounts.yml"
+      -"accounts-dev.yml"
+      -"accounts-prod.yml"
+      -"accounts-qa.yml"
+
+
+application:
+    name: "ARPAN-BAGS-ACCOUNTS"
+
+accounts:
+    message: "Welcome to Account Section related to local APIs"
+
+#arpanbagsprivatejaihanuman
+#https://emn178.github.io/online-tools/sha256.html
+jwt: 
+  jwtSecretKey : 33d5581a2d443825d32f8d634eeed46d3c21bb6927f61bfe83d1096f381ef7f6
+  jwtExpiryTimeout-milliseconds : 2500001
+
+

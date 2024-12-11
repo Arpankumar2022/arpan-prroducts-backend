@@ -1,0 +1,24 @@
+spring:
+  cache:type: redis
+  data.redis:
+    host: localhost
+    port: 6379
+  datasource:
+    url: jdbc:mysql://localhost:3306/arpanbagsproduct
+    username: root
+    password: root1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    #password: ${${SECRET_SUFFIX}_ddps-app-redis:redis}
+
+  #  config: for other configuration
+    #    import: optional:configtree:/mnt/secrets-store/
+      #  rabbitmq:
+      #   host: ${SMS_HOST:localhost}
+      #    port: ${SMS_PORT:5672}
+      #    username: ${SMS_USER:guest}
+    #   password: ${${SECRET_SUFFIX}_ddps-app-rabbitmq:guest}

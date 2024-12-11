@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: "ARPAN-BAGS-ACCOUNTS"
+  profiles:
+    active: native
+  cloud:
+    config:
+      import-check:
+        enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/arpanbagsproduct
+    username: root
+    password: root1234
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 9093
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9094/eureka/
+
+accounts:
+  message: "Welcome to Account Section related to local APIs"

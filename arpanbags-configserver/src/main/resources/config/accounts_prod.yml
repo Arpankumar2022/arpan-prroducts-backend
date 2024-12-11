@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+
+  application:
+    name: ARPAN-BAGS-ACCOUNTS
+
+accounts:
+  message: "Welcome to Account Section related to prod APIs"

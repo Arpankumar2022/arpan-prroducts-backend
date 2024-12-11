@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+topic:
+  name: t.food.order
+
+#multiple kafka servers can be defined here using comma
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+# Production-specific configuration
+---
+#spring:
+ # config:
+ # profiles: prod
+ # kafka:
+ #   bootstrap-servers: your-prod-kafka-broker:9092
+ #   consumer:
+  #    group-id: your-prod-group-id
