@@ -29,7 +29,6 @@ public class OtpService {
         if (user.getStatus() != User.Status.ACTIVE) {
             throw new RuntimeException("User is not active");
         }
-
         String otp = String.format("%06d", new Random().nextInt(999999));
 
         UserOtp otpEntity = new UserOtp();
