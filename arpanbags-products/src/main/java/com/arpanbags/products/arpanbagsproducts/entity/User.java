@@ -1,6 +1,7 @@
 package com.arpanbags.products.arpanbagsproducts.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Table(name = "users")
+@Data
 public class User {
 
     @Id

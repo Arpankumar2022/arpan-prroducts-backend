@@ -6,23 +6,20 @@ import com.arpanbags.products.arpanbagsproducts.entity.User;
 import com.arpanbags.products.arpanbagsproducts.entity.UserOtp;
 import com.arpanbags.products.arpanbagsproducts.repository.UserOtpRepository;
 import com.arpanbags.products.arpanbagsproducts.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 
 @Service
+@RequiredArgsConstructor
 public class AuthService {
 
     private final UserRepository userRepository;
     private final UserOtpRepository userOtpRepository;
     private final Msg91OtpService msg91OtpService;
 
-    public AuthService(UserRepository userRepository, UserOtpRepository userOtpRepository, Msg91OtpService msg91OtpService) {
-        this.userRepository = userRepository;
-        this.userOtpRepository = userOtpRepository;
-        this.msg91OtpService = msg91OtpService;
-    }
 
     public void register(RegisterRequest request) {
         if (userRepository.findByMobileNumber(request.getMobileNumber()).isPresent()) {

@@ -1,15 +1,18 @@
 package com.arpanbags.products.arpanbagsproducts.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.arpanbags.products.arpanbagsproducts.entity.categories.*;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+
+import java.util.List;
 
 @Data
 @Entity
-public class ProductsType extends BaseEntity{
+@EqualsAndHashCode
+public class ProductsType extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +28,13 @@ public class ProductsType extends BaseEntity{
 
     private Double productPrice;
 
+   /* @ManyToOne
+    @JoinColumn(name = "sub_category_id", nullable = false)
+    private SubCategory subCategory;
+*/
+    @ElementCollection
+    private List<String> imagePaths;
 
+    @Column(name = "subcategory_id")
+    private Long subcategoryId;
 }

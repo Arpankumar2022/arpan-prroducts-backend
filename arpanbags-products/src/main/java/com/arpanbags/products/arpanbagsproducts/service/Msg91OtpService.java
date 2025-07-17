@@ -1,5 +1,6 @@
 package com.arpanbags.products.arpanbagsproducts.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class Msg91OtpService {
 
     @Value("${msg91.authkey}")

@@ -1,14 +1,14 @@
 package com.arpanbags.products.arpanbagsproducts.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Setter
-@Getter
+@Data
 @Table(name = "user_otps")
 public class UserOtp {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

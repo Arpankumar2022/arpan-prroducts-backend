@@ -1,6 +1,5 @@
 package com.arpanbags.products.arpanbagsproducts.controller;
 
-
 import com.arpanbags.products.arpanbagsproducts.dto.ProductsTypeDTO;
 import com.arpanbags.products.arpanbagsproducts.service.ProductTypeService;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +32,7 @@ public class ProductTypeController {
         return ResponseEntity.ok(product);
     }
     @PostMapping
-    public ResponseEntity<ProductsTypeDTO> createProduct(@RequestBody ProductsTypeDTO productTypeDTO) {
+    public ResponseEntity<ProductsTypeDTO> createProduct(@ModelAttribute ProductsTypeDTO productTypeDTO) {
         log.info("create product in ProductTypeController ");
         ProductsTypeDTO createdProduct = productTypeService.createProductType(productTypeDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
