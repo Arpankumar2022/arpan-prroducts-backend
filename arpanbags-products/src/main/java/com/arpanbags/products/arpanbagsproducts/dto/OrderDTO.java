@@ -20,7 +20,7 @@ public class OrderDTO {
 
     private LocalDateTime orderDate;
 
-    private List<OrderItemDTO> itemsDTOs;
+    private List<OrderItemDTO> itemDTOs;
 
     private String orderNumber;
 

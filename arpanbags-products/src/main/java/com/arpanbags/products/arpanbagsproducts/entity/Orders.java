@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,13 +22,18 @@ public class Orders {
 
     private LocalDateTime orderDate;
 
-    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
-    private List<OrderItem> items;
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL,  orphanRemoval = true)
+    private List<OrderItem> items=new ArrayList<>();;
 
     private String orderNumber;
 
     private Long userId;
 
     private OrderStatus orderStatus;
+
+    public void addOrderItem(OrderItem item) {
+        items.add(item);
+        item.setOrders(this); // very important!
+    }
 
 }
