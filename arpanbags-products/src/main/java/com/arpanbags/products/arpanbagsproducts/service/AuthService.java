@@ -5,7 +5,6 @@ import com.arpanbags.products.arpanbagsproducts.entity.User;
 import com.arpanbags.products.arpanbagsproducts.entity.UserOtp;
 import com.arpanbags.products.arpanbagsproducts.repository.UserOtpRepository;
 import com.arpanbags.products.arpanbagsproducts.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 @Service
-@RequiredArgsConstructor
+
 public class AuthService {
 
     private final UserRepository userRepository;
@@ -25,11 +24,12 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
-    public AuthService(UserRepository userRepository, UserOtpRepository userOtpRepository, Msg91OtpService msg91OtpService, PasswordEncoder passwordEncoder) {
+    public AuthService(UserRepository userRepository, UserOtpRepository userOtpRepository, Msg91OtpService msg91OtpService, PasswordEncoder passwordEncoder, JwtService jwtService) {
         this.userRepository = userRepository;
         this.userOtpRepository = userOtpRepository;
         this.msg91OtpService = msg91OtpService;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
     }
 
 
