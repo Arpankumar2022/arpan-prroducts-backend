@@ -1,11 +1,13 @@
 package com.arpanbags.products.arpanbagsproducts.entity;
 
+import com.arpanbags.products.arpanbagsproducts.dto.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Setter
@@ -25,8 +27,11 @@ public class User {
     private String mobileNumber;
 
     private String password;
+    private String address;
 
-    private String fullName;
+    private String companyName;
+
+    private List<Role> roles;
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;

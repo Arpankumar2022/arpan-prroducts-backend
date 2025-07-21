@@ -1,7 +1,6 @@
 package com.arpanbags.products.arpanbagsproducts.controller;
 
-import com.arpanbags.products.arpanbagsproducts.dto.OtpVerifyRequest;
-import com.arpanbags.products.arpanbagsproducts.dto.RegisterRequest;
+import com.arpanbags.products.arpanbagsproducts.dto.*;
 import com.arpanbags.products.arpanbagsproducts.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +19,11 @@ public class AuthController {
         return ResponseEntity.ok("Registered successfully. OTP sent for verification.");
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
+    }
+
     @PostMapping("/send-otp")
     public ResponseEntity<String> sendOtp(@RequestParam String mobileNumber) {
         authService.sendOtp(mobileNumber);
@@ -31,4 +35,11 @@ public class AuthController {
         String result = authService.verifyOtp(request);
         return ResponseEntity.ok(result);
     }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> resetPassword(@RequestBody ResetPasswordRequest request) {
+        authService.resetPassword(request.getMobileNumber(), request.getNewPassword());
+        return ResponseEntity.ok("Password reset successfully.");
+    }
+
 }
