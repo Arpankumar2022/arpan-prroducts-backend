@@ -7,7 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -31,7 +32,13 @@ public class User {
 
     private String companyName;
 
-    private List<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles", // Join table
+            joinColumns = @JoinColumn(name = "user_id"), // FK to user
+            inverseJoinColumns = @JoinColumn(name = "role_id") // FK to role
+    )
+    private Set<Role> roles = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;

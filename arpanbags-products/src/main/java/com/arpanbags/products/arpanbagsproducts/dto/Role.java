@@ -1,13 +1,19 @@
 package com.arpanbags.products.arpanbagsproducts.dto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
+@Entity
+@Table(name = "roles")
 @Getter
+@Setter
 public class Role {
+    @Id
     private String id;
-    private String name; // e.g. "ROLE_USER", "ROLE_ADMIN"
 
-    // Getters and Setters
+    private String name; // e.g. "ROLE_USER"
 }
+
