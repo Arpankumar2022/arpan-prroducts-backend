@@ -1,6 +1,5 @@
 package com.arpanbags.products.arpanbagsproducts.entity;
 
-import com.arpanbags.products.arpanbagsproducts.dto.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;

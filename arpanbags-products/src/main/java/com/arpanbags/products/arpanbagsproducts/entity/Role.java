@@ -1,4 +1,4 @@
-package com.arpanbags.products.arpanbagsproducts.dto;
+package com.arpanbags.products.arpanbagsproducts.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
