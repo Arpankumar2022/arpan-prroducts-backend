@@ -1,10 +1,10 @@
 package com.arpanbags.products.arpanbagsproducts.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
-@Getter
+@Data
 public class OtpVerifyRequest {
     private String mobileNumber;
     private String otp;
