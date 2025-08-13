@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -72,10 +71,7 @@ public class OrderService {
     }
 
     public List<OrderDTO> getAllOrders() {
-        return orderRepository.findAll().stream().map(order -> {
-            OrderDTO orderDTO = OrderMapper.INSTANCE.toOrderDTO(order);
-            return orderDTO;
-        }).toList();
+        return orderRepository.findAll().stream().map(order -> OrderMapper.INSTANCE.toOrderDTO(order)).toList();
     }
 
     public Orders updateOrder(Orders order) {

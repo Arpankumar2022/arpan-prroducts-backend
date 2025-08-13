@@ -42,4 +42,9 @@ public class AuthController {
         return ResponseEntity.ok("Password reset successfully.");
     }
 
+    @GetMapping("/ping")
+    public String ping(){
+        return "pong";
+    }
+
 }
